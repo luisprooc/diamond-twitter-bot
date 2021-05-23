@@ -1,12 +1,14 @@
-import tweepy
-from keys import auth_proccess
+from Bot import Bot
 
 
-auth = auth_proccess()
+diamond_bot = Bot()
 
+while True:
+    if diamond_bot.show_options() in diamond_bot.actions:
+        if diamond_bot.show_options() == "a":
+            diamond_bot.see_public_tweets()
+        
 
-api = tweepy.API(auth)
-
-public_tweets = api.home_timeline()
-for tweet in public_tweets:
-    print(tweet.text)
+    else:
+        print("\nBOT OFF")
+        break
